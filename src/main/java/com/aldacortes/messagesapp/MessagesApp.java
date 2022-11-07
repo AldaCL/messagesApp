@@ -6,6 +6,7 @@
 package com.aldacortes.messagesapp;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 /**
  *
@@ -14,13 +15,36 @@ import java.sql.SQLException;
 public class MessagesApp {
 
     public static void main(String[] args){
-        ConnectionHandler connectionHandler = new ConnectionHandler();
+        int option = 0;
+        Scanner scanner = new Scanner(System.in);
 
-        try(Connection cnx = connectionHandler.getConnection()){
+        do{
+            System.out.println("\n\n");
+            System.out.println("Select an option: \n");
+            System.out.println("1. Create a message");
+            System.out.println("2. List messages");
+            System.out.println("3. Edit a message");
+            System.out.println("4. Delete a message");
+            System.out.println("5. Exit");
 
-        }catch (SQLException e){
-            System.out.println(e);
-        }
+            option = scanner.nextInt();
+
+            switch (option){
+                case 1:
+                    MessageService.createMessate();
+                    break;
+                case 2:
+                    MessageService.listMessages();
+                    break;
+                case 3:
+                    MessageService.editMessages();
+                    break;
+                case 4:
+                    MessageService.deleteMessage();
+                    break;
+            }
+
+        }while (option != 5);
     }
 
 }
