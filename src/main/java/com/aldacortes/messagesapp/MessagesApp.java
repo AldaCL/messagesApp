@@ -13,7 +13,7 @@ import java.sql.SQLException;
  */
 public class MessagesApp {
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args){
         ConnectionHandler connectionHandler = new ConnectionHandler();
 
         try(Connection cnx = connectionHandler.getConnection()){
